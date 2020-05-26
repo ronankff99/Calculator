@@ -1,10 +1,7 @@
 import java.util.Stack;
-import java.util.Stack;
 
 //To be reworked
 public class Calculator {
-
-
 
     public static void main(String[] args) {
         String test = "(2+2)/2";
