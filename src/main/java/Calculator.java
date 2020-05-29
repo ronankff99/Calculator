@@ -3,8 +3,9 @@ import java.util.Stack;
 //To be reworked
 public class Calculator {
 
-    public static void main(String[] args) {
-        String test = "(2*4)-(6/2)";
+    public static void main(String[] args)
+    {
+        String test = "( 2 * 44.85 ) - ( 6 / 2 )";
         calculator(test);
 
     }
@@ -12,8 +13,9 @@ public class Calculator {
     //Implementation is based off Dijkstra's Two Stack Algorithm
     //Can add operators later :)
     //http://www.wisenheimerbrainstorm.com/archive/algorithms/dijkstra-s-two-stack-algorithm
-    static void calculator(String calculation) {
-        String exp[] = calculation.split("");
+    static void calculator(String calculation)
+    {
+        String exp[] = calculation.split("\\s");
         var operands = new Stack<String>();
         var values = new Stack<Double>();
 
