@@ -1,7 +1,8 @@
 import java.util.Stack;
 
 //To be reworked
-public class Calculator {
+public class Calculator
+{
 
     public static void main(String[] args)
     {
@@ -15,19 +16,27 @@ public class Calculator {
     //http://www.wisenheimerbrainstorm.com/archive/algorithms/dijkstra-s-two-stack-algorithm
     static void calculator(String calculation)
     {
-        String exp[] = calculation.split("\\s");
+        String[] expression = calculation.split("\\s");
         var operands = new Stack<String>();
         var values = new Stack<Double>();
 
-        for (String s : exp) {
-            if (s.equals("(")) {
+        for (String token : expression)
+        {
+            if (token.equals("("))
+            {
                 //Do nothing
-            } else if (s.equals("+") || s.equals("*") || s.equals("/") || s.equals("-")) {
-                operands.push(s);
-            } else if (s.equals(")")) {
+            }
+            else if (token.equals("+") || token.equals("*") || token.equals("/") || token.equals("-"))
+            {
+                operands.push(token);
+            }
+            else if (token.equals(")"))
+            {
                 quickMaths(operands, values);
-            } else {
-                values.push(Double.parseDouble(s));
+            }
+            else
+            {
+                values.push(Double.parseDouble(token));
             }
         }
 
@@ -37,11 +46,13 @@ public class Calculator {
     }
 
     //This is a stupid, stupid name for this function
-    static void quickMaths(Stack<String> operands, Stack<Double> values) {
+    static void quickMaths(Stack<String> operands, Stack<Double> values)
+    {
         //Making this a string because I was thinking if you wanted to use operators like sqrt in the future
         String operator = operands.pop();
         Double value = values.pop();
-        switch (operator) {
+        switch (operator)
+        {
             case "+":
                 value = values.pop() + value;
                 break;
