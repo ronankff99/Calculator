@@ -61,7 +61,26 @@ public class StandardCalculator
     private void updateCurrentExpression(String key)
     {
         String temp = input.getText();
-        input.setText(temp + " " + key);
+
+        if (temp.equals("null"))
+        {
+            temp = "";
+        }
+
+        if (temp.length() == 0)
+        {
+            temp = key;
+        }
+        else if (Character.isDigit(key.charAt(0)) && Character.isDigit(temp.charAt(temp.length() - 1)))
+        {
+            temp += key;
+        }
+        else
+        {
+            temp += " " + key;
+        }
+
+        input.setText(temp);
     }
 
 
