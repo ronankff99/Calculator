@@ -1,20 +1,28 @@
+package Functionality;
+
 import java.util.Stack;
 
 //To be reworked
 public class Calculator
 {
 
+    /*
     public static void main(String[] args)
     {
         String test = "( 2 * 44.85 ) - ( 6 / 2 )";
         calculator(test);
 
     }
+     */
+    public Calculator()
+    {
+
+    }
 
     //Implementation is based off Dijkstra's Two Stack Algorithm
     //Can add operators later :)
     //http://www.wisenheimerbrainstorm.com/archive/algorithms/dijkstra-s-two-stack-algorithm
-    static void calculator(String calculation)
+    public Double calculator(String calculation)
     {
         String[] expression = calculation.split("\\s");
         var operands = new Stack<String>();
@@ -41,12 +49,11 @@ public class Calculator
         }
 
         quickMaths(operands, values);
-        System.out.println(values.pop());
-
+        return values.pop();
     }
 
     //This is a stupid, stupid name for this function
-    static void quickMaths(Stack<String> operands, Stack<Double> values)
+    public void quickMaths(Stack<String> operands, Stack<Double> values)
     {
         //Making this a string because I was thinking if you wanted to use operators like sqrt in the future
         String operator = operands.pop();

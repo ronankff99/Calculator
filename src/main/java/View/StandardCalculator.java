@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.util.Map;
+import Functionality.Calculator;
 
 public class StandardCalculator
 {
@@ -62,25 +63,37 @@ public class StandardCalculator
     {
         String temp = input.getText();
 
-        if (temp.equals("null"))
+        if (key.equals("C"))
         {
-            temp = "";
+            input.setText("null");
         }
-
-        if (temp.length() == 0)
+        else if (key.equals("="))
         {
-            temp = key;
-        }
-        else if (Character.isDigit(key.charAt(0)) && Character.isDigit(temp.charAt(temp.length() - 1)))
-        {
-            temp += key;
+            Calculator test = new Calculator();
+            input.setText(test.calculator(temp).toString());
         }
         else
         {
-            temp += " " + key;
-        }
+            if (temp.equals("null"))
+            {
+                temp = "";
+            }
 
-        input.setText(temp);
+            if (temp.length() == 0)
+            {
+                temp = key;
+            }
+            else if (Character.isDigit(key.charAt(0)) && Character.isDigit(temp.charAt(temp.length() - 1)))
+            {
+                temp += key;
+            }
+            else
+            {
+                temp += " " + key;
+            }
+
+            input.setText(temp);
+        }
     }
 
 

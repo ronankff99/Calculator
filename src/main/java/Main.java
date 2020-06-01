@@ -17,7 +17,7 @@ public class Main extends Application
             StandardCalculator standardCalculator = new StandardCalculator();
             StackPane mainPane = standardCalculator.create();
             Group root = new Group();
-            primaryStage.setTitle("Calculator");
+            primaryStage.setTitle("Functionality.Calculator");
             Scene scene = new Scene(root, 325, 475);
 
             root.getChildren().add(mainPane);
